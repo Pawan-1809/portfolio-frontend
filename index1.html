@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(120deg, #2b5876, #4e4376);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: rgba(5, 6, 19, 0.7);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .nav .profile {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav .profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+
+      .nav .profile span {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .nav .menu {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav .menu a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1rem;
+        position: relative;
+      }
+
+      .nav .menu a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0;
+        height: 2px;
+        background: #fff;
+        transition: width 0.3s ease;
+      }
+
+      .nav .menu a:hover::after {
+        width: 100%;
+      }
+
+      .portfolio-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3rem;
+        padding: 2rem;
+        flex: 1;
+      }
+
+      .portfolio-item {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 1.5rem;
+        width: 280px;
+        height: 350px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        transition: transform 0.5s ease, background 0.3s ease;
+      }
+
+      .portfolio-item:hover {
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        opacity: 0.9;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .portfolio-item:hover img {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      .portfolio-item .info {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .portfolio-item:hover .info {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .portfolio-item h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #fff;
+      }
+
+      .portfolio-item p {
+        margin: 0.5rem 0 0;
+        font-size: 1rem;
+        color: #ddd;
+      }
+
+      .portfolio-item button {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background: #4e4376;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .portfolio-item button:hover {
+        background: #2b5876;
+      }
+
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+        }
+        100% {
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      .portfolio-item:hover {
+        animation: glow 1.5s infinite ease-in-out;
+      }
+      .portfolio-icons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+
+      .portfolio-icons i {
+        font-size: 1.5rem;
+        color: #fff;
+        transition: transform 0.5s ease, color 0.3s ease;
+      }
+
+      .portfolio-icons i:hover {
+        transform: scale(1.5);
+        color: #4e4376;
+      }
+
+      footer {
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="profile">
+        <img src="profile.jpg" alt="Profile Photo" />
+        <span>Pawan verma</span>
+      </div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#dashboard">Dashboard</a>
+      </div>
+    </div>
+
+    <div class="portfolio-container">
+      <div class="portfolio-item">
+        <img src="disease_prediction_model.jpg" alt="Project Thumbnail" />
+        <div class="info">
+          <h3>Disease Prediction Model</h3>
+          <p>
+            A machine learning model that uses mean of 3 algorithms to predict
+            diseases
+          </p>
+          <button>View Project</button>
+          <div class="portfolio-icons">
+            <i class="fas fa-code"></i>
+            <i class="fas fa-video"></i>
+            <i class="fas fa-link"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="College_management_system.jpg" alt="Project Thumbnail" />
+        <div class="info">
+          <h3>College Management System</h3>
+          <p>
+            A Django built portal where you can manage attendance and grades
+          </p>
+          <button>View Project</button>
+          <div class="portfolio-icons">
+            <i class="fas fa-code"></i>
+            <i class="fas fa-video"></i>
+            <i class="fas fa-link"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="fake_news_detection.jpg" alt="Project Thumbnail" />
+        <div class="info">
+          <h3>Fake-news Prediction Model</h3>
+          <p>
+            A Model that can identifies fake news using Deep learning algorithms
+          </p>
+          <button>View More</button>
+          <div class="portfolio-icons">
+            <i class="fas fa-code"></i>
+            <i class="fas fa-video"></i>
+            <i class="fas fa-link"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2024 Pawan Kumar | Mail: pawankr16123114@gmail.com | Contact: +91
+      7857917511
+    </footer>
+  </body>
+</html>
